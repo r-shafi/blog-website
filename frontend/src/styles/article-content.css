@@ -1,0 +1,94 @@
+/* Base article content styles */
+.article-content {
+  @apply prose prose-lg max-w-none prose-newspaper;
+}
+
+/* Custom theme for prose */
+.prose-newspaper {
+  @apply prose-headings:font-serif
+    prose-headings:font-bold
+    prose-h1:text-4xl
+    prose-h2:text-3xl
+    prose-h3:text-2xl
+    prose-p:text-gray-700
+    prose-a:text-newspaper-accent
+    prose-a:no-underline
+    prose-a:hover:underline
+    prose-blockquote:border-l-newspaper-accent
+    prose-blockquote:bg-gray-50
+    prose-blockquote:py-1
+    prose-strong:text-gray-900
+    prose-code:text-newspaper-accent
+    prose-code:bg-gray-50
+    prose-code:px-1
+    prose-code:py-0.5
+    prose-code:rounded
+    prose-pre:bg-gray-900
+    prose-img:rounded-lg
+    prose-hr:border-gray-200;
+}
+
+/* Code block styles */
+.article-content pre {
+  @apply p-4 rounded-lg overflow-x-auto;
+}
+
+/* Image styles */
+.article-content img {
+  @apply max-h-[600px] object-contain mx-auto;
+}
+
+/* List styles */
+.article-content ul {
+  @apply list-disc pl-6 mb-6;
+}
+
+.article-content ol {
+  @apply list-decimal pl-6 mb-6;
+}
+
+/* Table styles */
+.article-content table {
+  @apply w-full border-collapse mb-6;
+}
+
+.article-content th,
+.article-content td {
+  @apply border border-gray-200 px-4 py-2;
+}
+
+.article-content th {
+  @apply bg-gray-50 font-semibold;
+}
+
+/* Blockquote styles */
+.article-content blockquote {
+  @apply italic border-l-4 pl-4 my-6;
+}
+
+/* Dark mode styles for article content */
+.dark .article-content {
+  @apply prose-invert;
+}
+
+.dark .prose-newspaper {
+  @apply prose-headings:text-gray-100
+    prose-p:text-gray-300
+    prose-a:text-red-400
+    prose-blockquote:border-l-red-400
+    prose-blockquote:bg-gray-800
+    prose-strong:text-gray-100
+    prose-code:text-red-400
+    prose-code:bg-gray-800
+    prose-pre:bg-gray-950
+    prose-hr:border-gray-700;
+}
+
+.dark .article-content th,
+.dark .article-content td {
+  @apply border-gray-700;
+}
+
+.dark .article-content th {
+  @apply bg-gray-800 text-gray-100;
+}
