@@ -12,7 +12,7 @@ from django.contrib.auth import get_user_model
 import argparse
 
 if __name__ == '__main__':
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog_backend.settings_prod')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog_backend.settings')
     django.setup()
 
     parser = argparse.ArgumentParser(description='Initialize database with clean data')

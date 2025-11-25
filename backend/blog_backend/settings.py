@@ -19,11 +19,11 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-replace-this-with-your-secret-key'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-replace-this-with-your-secret-key-in-production')
 
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(',') if os.getenv('DJANGO_ALLOWED_HOSTS') else ['*']
 
 
 INSTALLED_APPS = [
@@ -160,11 +160,11 @@ CACHES = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8080',
-    'http://127.0.0.1:8080',
-]
+# CORS Configuration - Allow all origins without restrictions
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['*']
+CORS_ALLOW_METHODS = ['*']
 
 
 # Email Configuration
